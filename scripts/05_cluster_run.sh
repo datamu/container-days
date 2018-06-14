@@ -41,6 +41,41 @@ bin/spark-submit \
 kubectl delete pods $APP_NAME
 
 # Submit Linear Regression
+export APP_NAME=lr
+export TAG=6.0
 
+bin/spark-submit \
+ --master k8s://http://127.0.0.1:8080 \
+ --deploy-mode cluster \
+ --name $APP_NAME \
+ --class com.zoi.xgb.DemoLR \
+ --conf spark.executor.instances=5 \
+ --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
+ --conf spark.kubernetes.container.image=gcr.io/t-zoi-play18/spark-k8:$TAG \
+ --conf spark.kubernetes.driver.pod.name=$APP_NAME \
+  local:///opt/spark/jars/zoi-demo_2.11-1.0.jar /opt/smart_meter.csv
+
+kubectl delete pods $APP_NAME
+kubectl logs -f linear-reg
+
+# 0.44269802963375626
 
 # Submit Random Forest
+export APP_NAME=rf
+export TAG=6.0
+
+bin/spark-submit \
+ --master k8s://http://127.0.0.1:8080 \
+ --deploy-mode cluster \
+ --name $APP_NAME \
+ --class com.zoi.xgb.DemoDT \
+ --conf spark.executor.instances=5 \
+ --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
+ --conf spark.kubernetes.container.image=gcr.io/t-zoi-play18/spark-k8:$TAG \
+ --conf spark.kubernetes.driver.pod.name=$APP_NAME \
+  local:///opt/spark/jars/zoi-demo_2.11-1.0.jar /opt/smart_meter.csv
+
+kubectl delete pods $APP_NAME
+kubectl logs -f rf
+
+# 0.4162156312857902
