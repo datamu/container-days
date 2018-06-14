@@ -2,7 +2,7 @@
 kubectl port-forward spark-pi-driver 4040:4040
 
 # Delete Stuff
-kubectl delete pods spark-pi-driver
+kubectl delete pods $APP_NAME
 # kubectl delete services spark-pi-driver
 
 # Logs
