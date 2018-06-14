@@ -14,5 +14,4 @@
 
 # SBT Commands located in
 06_sbt_commands.sh
-
 ```
