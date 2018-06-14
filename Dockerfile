@@ -8,7 +8,7 @@ ADD https://storage.googleapis.com/hadoop-lib/gcs/gcs-connector-latest-hadoop2.j
 ADD https://github.com/krishnakalyan3/container-days/blob/master/jars/xgboost4j-0.80-SNAPSHOT.jar?raw=true $SPARK_HOME/jars
 ADD https://github.com/krishnakalyan3/container-days/blob/master/jars/xgboost4j-spark-0.80-SNAPSHOT.jar?raw=true $SPARK_HOME/jars
 
-# Download Data
+# Download data to the container
 ADD https://raw.githubusercontent.com/krishnakalyan3/container-days/master/data/smart_meter.csv /opt/
 
 # Jar from the Build Process
