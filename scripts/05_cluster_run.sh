@@ -21,7 +21,7 @@ bin/spark-submit \
  --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
  --conf spark.kubernetes.container.image=gcr.io/t-zoi-play18/spark-k8:11 \
  --conf spark.kubernetes.driver.pod.name=spark-pi-driver \
- local:///opt/spark/examples/jars/spark-examples_2.11-2.3.0.jar 10
+ local:///opt/spark/examples/jars/spark-examples_2.11-2.3.0.jar 100
 
 # Test Scala Jar
 export APP_NAME=spark-demo
@@ -41,7 +41,7 @@ bin/spark-submit \
 kubectl delete pods $APP_NAME
 
 # Submit Linear Regression
-export APP_NAME=lr
+export APP_NAME=lr-demo
 export TAG=6.0
 
 bin/spark-submit \

@@ -8,5 +8,5 @@ kubectl delete pods $APP_NAME
 # Logs
 kubectl logs -f $APP_NAME
 
-#
+# See pods
 kubectl get pods

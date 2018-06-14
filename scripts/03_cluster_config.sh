@@ -1,6 +1,5 @@
 
 gcloud container clusters create spark-ml \
---scopes "https://www.googleapis.com/auth/projecthosting,storage-rw" \
 --num-nodes 3 \
 --machine-type n1-standard-4 --zone europe-west3-a
 
