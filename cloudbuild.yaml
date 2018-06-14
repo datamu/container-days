@@ -1,0 +1,9 @@
+# CI CD Trigger
+
+# Build Docker
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-f', 'Dockerfile', '-t', 'gcr.io/t-zoi-play18/spark-k8:$TAG_NAME', '.']
+
+images:
+  - 'gcr.io/t-zoi-play18/spark-k8'
