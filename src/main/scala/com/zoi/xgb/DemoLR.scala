@@ -4,7 +4,7 @@ import org.apache.spark.ml.feature.{VectorAssembler}
 import org.apache.spark.ml.regression.{LinearRegression, LinearRegressionModel}
 import org.apache.spark.sql.{Dataset, SparkSession}
 import org.apache.spark.ml.evaluation.RegressionEvaluator
-
+import Console.{RED,RESET}
 
 object  DemoLR {
 
@@ -21,7 +21,7 @@ object  DemoLR {
                     .setPredictionCol("prediction")
 
     val rmse = evaluator.evaluate(predictions)
-    println(s"test rmse: ${rmse}")
+    Console.println(s"${RESET}${RED}test rmse: ${rmse}${RESET}")
   }
 
 
