@@ -5,7 +5,7 @@ bin/spark-submit \
  --deploy-mode cluster \
  --name spark-pi \
  --class org.apache.spark.examples.SparkPi \
- --conf spark.executor.instances=5 \
+ --conf spark.executor.instances=3 \
  --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
  --conf spark.kubernetes.container.image=gcr.io/t-zoi-play18/spark-k8:11 \
  --conf spark.kubernetes.driver.pod.name=spark-pi-driver \
@@ -32,7 +32,7 @@ bin/spark-submit \
  --deploy-mode cluster \
  --name $APP_NAME \
  --class com.zoi.xgb.DemoTest \
- --conf spark.executor.instances=5 \
+ --conf spark.executor.instances=3 \
  --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
  --conf spark.kubernetes.container.image=gcr.io/t-zoi-play18/spark-k8:$TAG \
  --conf spark.kubernetes.driver.pod.name=$APP_NAME \
@@ -42,14 +42,14 @@ kubectl delete pods $APP_NAME
 
 # Submit Linear Regression
 export APP_NAME=lr-demo
-export TAG=15
+export TAG=1.0
 
 bin/spark-submit \
  --master k8s://http://127.0.0.1:8080 \
  --deploy-mode cluster \
  --name $APP_NAME \
  --class com.zoi.xgb.DemoLR \
- --conf spark.executor.instances=5 \
+ --conf spark.executor.instances=3 \
  --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
  --conf spark.kubernetes.container.image=gcr.io/t-zoi-play18/spark-k8:$TAG \
  --conf spark.kubernetes.driver.pod.name=$APP_NAME \
@@ -62,14 +62,14 @@ test rmse: 0.5352519473911752
 
 # Submit Random Forest
 export APP_NAME=rf
-export TAG=14
+export TAG=1.0
 
 bin/spark-submit \
  --master k8s://http://127.0.0.1:8080 \
  --deploy-mode cluster \
  --name $APP_NAME \
  --class com.zoi.xgb.DemoRF \
- --conf spark.executor.instances=5 \
+ --conf spark.executor.instances=3 \
  --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
  --conf spark.kubernetes.container.image=gcr.io/t-zoi-play18/spark-k8:$TAG \
  --conf spark.kubernetes.driver.pod.name=$APP_NAME \
