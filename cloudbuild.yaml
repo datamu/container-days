@@ -4,7 +4,7 @@
 
 steps:
 - name: 'gcr.io/t-zoi-play18/scala-sbt'
-  args: ['clean', 'stage']
+  args: ['clean', 'package']
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'build', '-f', 'Dockerfile', '-t', 'gcr.io/t-zoi-play18/spark-k8:$TAG_NAME', '.']
 
