@@ -31,7 +31,7 @@ bin/spark-submit \
  --master k8s://http://127.0.0.1:8080 \
  --deploy-mode cluster \
  --name $APP_NAME \
- --class com.zoi.xgb.TestDemo \
+ --class com.zoi.xgb.DemoTest \
  --conf spark.executor.instances=5 \
  --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
  --conf spark.kubernetes.container.image=gcr.io/t-zoi-play18/spark-k8:$TAG \

@@ -6,7 +6,7 @@ import org.apache.spark.sql.{Dataset, SparkSession}
 import org.apache.spark.ml.evaluation.RegressionEvaluator
 
 
-object  DemoDT {
+object  DemoRF {
 
   def test_eval(data:Dataset[_], model:RandomForestRegressionModel): Unit = {
 
@@ -49,12 +49,6 @@ object  DemoDT {
     val splits = prep_data.randomSplit(Array(0.7, 0.3))
     val (trainingData, testData) = (splits(0), splits(1))
     trainingData.cache()
-
-    val categoricalFeaturesInfo = Map[Int, Int]()
-    val impurity = "variance"
-    val maxDepth = 5
-    val maxBins = 32
-
 
     val model = new RandomForestRegressor()
 
