@@ -25,7 +25,7 @@ bin/spark-submit \
 
 # Test Scala Jar
 export APP_NAME=spark-demo
-export TAG=3.0
+export TAG=4.0
 
 bin/spark-submit \
  --master k8s://http://127.0.0.1:8080 \
@@ -36,9 +36,11 @@ bin/spark-submit \
  --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
  --conf spark.kubernetes.container.image=gcr.io/t-zoi-play18/spark-k8:$TAG \
  --conf spark.kubernetes.driver.pod.name=$APP_NAME \
-  local:///opt/spark/jars/xgboost_2.11-1.0.jar /opt/data/smart_meter.csv
+  local:///opt/spark/jars/xgboost_2.11-1.0.jar /opt/smart_meter.csv
 
 kubectl delete pods $APP_NAME
 
 # Submit Linear Regression
+
+
 # Submit Random Forest
