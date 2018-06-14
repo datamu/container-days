@@ -6,7 +6,7 @@ kubectl delete pods spark-pi-driver
 # kubectl delete services spark-pi-driver
 
 # Logs
-kubectl logs -f spark-pi-driver
+kubectl logs -f $APP_NAME
 
 #
 kubectl get pods
