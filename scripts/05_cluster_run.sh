@@ -42,7 +42,7 @@ kubectl delete pods $APP_NAME
 
 # Submit Linear Regression
 export APP_NAME=lr-demo
-export TAG=1.0
+export TAG=7.0
 
 bin/spark-submit \
  --master k8s://http://127.0.0.1:8080 \
@@ -62,7 +62,7 @@ test rmse: 0.5352519473911752
 
 # Submit Random Forest
 export APP_NAME=rf
-export TAG=1.0
+export TAG=7.0
 
 bin/spark-submit \
  --master k8s://http://127.0.0.1:8080 \

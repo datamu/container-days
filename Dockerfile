@@ -9,7 +9,7 @@ ADD https://github.com/krishnakalyan3/container-days/blob/master/jars/xgboost4j-
 ADD https://github.com/krishnakalyan3/container-days/blob/master/jars/xgboost4j-spark-0.80-SNAPSHOT.jar?raw=true $SPARK_HOME/jars
 
 # Download data to the container
-ADD https://raw.githubusercontent.com/krishnakalyan3/container-days/master/data/smart_meter.csv /opt/
+ADD https://raw.githubusercontent.com/datamu/container-days/master/data/smart_meter.csv /opt/
 
 # Jar from the Build Process
 ADD target/scala-2.11 $SPARK_HOME/jars
